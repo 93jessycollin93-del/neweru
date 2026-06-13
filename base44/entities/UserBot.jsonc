@@ -1,0 +1,118 @@
+{
+  "name": "UserBot",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "assistant",
+        "trader",
+        "game_helper",
+        "social",
+        "custom"
+      ]
+    },
+    "personality": {
+      "type": "string"
+    },
+    "instructions": {
+      "type": "string"
+    },
+    "response_style": {
+      "type": "string",
+      "enum": [
+        "short",
+        "detailed",
+        "strategic",
+        "creative"
+      ]
+    },
+    "memory_enabled": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive"
+      ],
+      "default": "active"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": false
+    },
+    "usage_count": {
+      "type": "number",
+      "default": 0
+    },
+    "xp": {
+      "type": "number",
+      "default": 0
+    },
+    "level": {
+      "type": "number",
+      "default": 1
+    },
+    "unlocked_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_interaction": {
+      "type": "string"
+    },
+    "page_assignments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of app page routes where this bot is deployed (e.g. '/markets', '/trade')",
+      "default": []
+    },
+    "connected_bot_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of other bots this bot can delegate tasks to",
+      "default": []
+    },
+    "handoff_instructions": {
+      "type": "string",
+      "description": "Instructions for when and how to hand off to connected bots"
+    }
+  },
+  "required": [
+    "name",
+    "role"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "$or": [
+        {
+          "created_by": "{{user.email}}"
+        },
+        {
+          "is_public": true
+        }
+      ]
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

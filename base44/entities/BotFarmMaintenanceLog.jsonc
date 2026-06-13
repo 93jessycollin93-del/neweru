@@ -1,0 +1,58 @@
+{
+  "name": "BotFarmMaintenanceLog",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Optional free-form description (max 1000 chars)"
+    },
+    "bot_id": {
+      "type": "string"
+    },
+    "maintenance_type": {
+      "type": "string",
+      "enum": [
+        "rest",
+        "repair",
+        "reset",
+        "recalibration",
+        "patch"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "scheduled",
+        "in_progress",
+        "complete"
+      ],
+      "default": "scheduled"
+    },
+    "impact": {
+      "type": "string"
+    },
+    "recovery_gain": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "required": [
+    "bot_id",
+    "maintenance_type"
+  ],
+  "rls": {
+    "create": {
+      "created_by": "{{user.email}}"
+    },
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "update": {
+      "created_by": "{{user.email}}"
+    },
+    "delete": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

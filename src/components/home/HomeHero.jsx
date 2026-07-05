@@ -1,8 +1,9 @@
-import { Sparkles, Compass } from 'lucide-react';
+import { Cpu, Gamepad2, Radio, Megaphone } from 'lucide-react';
 
 /**
- * HomeHero — top welcome banner for the Home tutorial page. Sets the tone:
- * "everything you can do, in one place." Pure presentation.
+ * HomeHero — top banner for the SAS Cybernetics workstation. Sets the tone:
+ * an AI studio you command — Controller, Receiver, Communicator — with Jackie
+ * at the center. Pure presentation.
  */
 export default function HomeHero() {
   return (
@@ -18,23 +19,30 @@ export default function HomeHero() {
 
       <div className="relative max-w-2xl">
         <div className="inline-flex items-center gap-1.5 rounded-full border border-fuchsia-400/40 bg-fuchsia-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-fuchsia-300">
-          <Sparkles className="h-3 w-3" /> Welcome to Cybernetic67
+          <Cpu className="h-3 w-3" /> SAS Cybernetics · AI Studio Workstation
         </div>
 
         <h1 className="eru-neon-glow-text mt-3 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
-          One platform. Every possibility.
+          Command your machine.
         </h1>
 
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          From building your audience, to trading and collecting assets, to deploying
-          automated bots — this is your guided tour. Follow the pathways below and
-          discover everything Cybernetic67 can do for you.
+          One workstation to forge AI agents, ingest the signals that matter, and
+          speak to the world — with Jackie orchestrating it all. Three pillars,
+          one command surface.
         </p>
 
-        <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-border bg-secondary/50 px-3 py-2 text-xs text-foreground">
-          <Compass className="h-4 w-4 text-primary" />
-          <span className="sm:hidden">Swipe down to explore each pathway</span>
-          <span className="hidden sm:inline">Scroll down to explore each pathway</span>
+        {/* The three pillars — the spine of the whole studio */}
+        <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3">
+          <div className="inline-flex items-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-xs text-foreground">
+            <Radio className="h-4 w-4 text-cyan-300" /> Controller
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/30 bg-emerald-500/10 px-3 py-2 text-xs text-foreground">
+            <Gamepad2 className="h-4 w-4 text-emerald-300" /> Receiver
+          </div>
+          <div className="inline-flex items-center gap-2 rounded-xl border border-fuchsia-400/30 bg-fuchsia-500/10 px-3 py-2 text-xs text-foreground">
+            <Megaphone className="h-4 w-4 text-fuchsia-300" /> Communicator
+          </div>
         </div>
       </div>
     </section>
